@@ -1,4 +1,4 @@
-package com.example.knumeet;
+package com.blueboard.knumeet;
 
 import org.junit.Test;
 
