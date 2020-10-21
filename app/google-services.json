@@ -16,7 +16,7 @@
       "oauth_client": [
         {
           "client_id": "720917589327-li7o4t4oj5fnin00p2k4296npmmfvagd.apps.googleusercontent.com",
-          "client_type": 1,
+          "client_type": 3,
           "android_info": {
             "package_name": "com.blueboard.knumeet",
             "certificate_hash": "a74654aefd4d7fd9dd63c6a8dbd1a473bd34acd6"
