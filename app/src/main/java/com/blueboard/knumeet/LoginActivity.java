@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity{
      private Button btn_login;*/
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
+
     @Override
     protected void onStart() {
         super.onStart();
