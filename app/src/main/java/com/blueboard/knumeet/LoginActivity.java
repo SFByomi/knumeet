@@ -1,5 +1,5 @@
 package com.blueboard.knumeet;
-
+/*
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,9 +34,7 @@ public class LoginActivity extends AppCompatActivity{
     private static final int RC_SIGN_IN = 6969;
     private GoogleSignInClient mGoogleSignInClient;
     private SignInButton signInButton;
-    /* private EditText mEmail,mPassword;
-     private TextView tv_signup;
-     private Button btn_login;*/
+
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
 
@@ -131,4 +129,4 @@ public class LoginActivity extends AppCompatActivity{
         startActivityForResult(signIntent,RC_SIGN_IN);
     }
 
-}
+}*/
