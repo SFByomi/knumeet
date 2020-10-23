@@ -85,16 +85,107 @@ public class MainFragment extends Fragment {
     // Inflate the layout for this fragment
     view = inflater.inflate(R.layout.fragment_main, container, false);
 
+    tvDate = (TextView)view.findViewById(R.id.tv_curdate);
+
+    gridView = (GridView)view.findViewById(R.id.gv_calender);
+    iv_last =  (ImageView)view.findViewById(R.id.iv_lastmonth);
+    iv_next =  (ImageView)view.findViewById(R.id.iv_nextmonth);
+
+    iv_last.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+
+        clickLeft++;
+        //gridview 요일 표시
+        dayList = new ArrayList<String>();
+        dayList.add("일");
+        dayList.add("월");
+        dayList.add("화");
+        dayList.add("수");
+        dayList.add("목");
+        dayList.add("금");
+        dayList.add("토");
 
 
+        showM--;
 
-    tvDate = (TextView)findViewById(R.id.tv_curdate);
+        //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
+        mCal.set(showY, showM-1, 1);
+        dayNum = mCal.get(Calendar.DAY_OF_WEEK);
+        //Toast.makeText(getApplicationContext(), "dayNum = " + dayNum , Toast.LENGTH_SHORT).show();
+        //1일 - 요일 매칭 시키기 위해 공백 add
+        for (int i = 1; i < dayNum; i++) {
+          dayList.add("");
+        }
+        setCalendarDate(mCal.get(Calendar.MONTH) + 1);
 
-    gridView = (GridView)findViewById(R.id.gv_calender);
-    iv_last =  (ImageView)findViewById(R.id.iv_lastmonth);
-    iv_next =  (ImageView)findViewById(R.id.iv_nextmonth);
+        lastM = Integer.parseInt(curMonthFormat.format(date))  - clickLeft;
+        lastY = Integer.parseInt(curYearFormat.format(date));
 
-    pref = getSharedPreferences("pref", MODE_PRIVATE);
+        gridAdapter = new GridAdapter(view.getContext().getApplicationContext(), dayList, lastM);
+        gridView.setAdapter(gridAdapter);
+
+        if(showM<1){
+          showY--;
+          showM += 12;
+          //Toast.makeText(this, showM+"  "+showY, Toast.LENGTH_LONG).show();
+        }
+        if(showM<10) {
+          tvDate.setText(showY + "/" + "0" + showM);
+        }
+        else if(showM<=12){
+          tvDate.setText(showY + "/"  + showM);
+        }
+      }
+    });
+    iv_next.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+
+        clickRight++;
+        //gridview 요일 표시
+        dayList = new ArrayList<String>();
+        dayList.add("일");
+        dayList.add("월");
+        dayList.add("화");
+        dayList.add("수");
+        dayList.add("목");
+        dayList.add("금");
+        dayList.add("토");
+
+
+        showM++;
+        //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
+        mCal.set(showY, showM-1, 1);
+        dayNum = mCal.get(Calendar.DAY_OF_WEEK);
+        //Toast.makeText(getApplicationContext(), "dayNum = " + dayNum , Toast.LENGTH_SHORT).show();
+        //1일 - 요일 매칭 시키기 위해 공백 add
+        for (int i = 1; i < dayNum; i++) {
+          dayList.add("");
+        }
+        setCalendarDate(mCal.get(Calendar.MONTH) + 1);
+
+        nextM = Integer.parseInt(curMonthFormat.format(date))  + clickRight;
+        nextY = Integer.parseInt(curYearFormat.format(date));
+
+        gridAdapter = new GridAdapter(view.getContext().getApplicationContext(), dayList, nextM);
+        gridView.setAdapter(gridAdapter);
+
+        if(showM>12){
+          showY++;
+          showM-=12;
+
+        }
+        if(showM<10) {
+          tvDate.setText(showY + "/" + "0" + showM);
+        }
+        else if(nextM<=12){
+          tvDate.setText(showY + "/"  + showM);
+        }
+      }
+    });
+
+    pref =  this.getContext().getSharedPreferences("pref", this.getContext().MODE_PRIVATE);
     color = pref.getInt("key2", -8331542);
 
     iv_last.setColorFilter(null);
@@ -148,7 +239,7 @@ public class MainFragment extends Fragment {
     showM = Integer.parseInt(curMonthFormat.format(date));
     showY = Integer.parseInt(curYearFormat.format(date));
 
-    gridAdapter = new GridAdapter(getApplicationContext(), dayList, showM);
+    gridAdapter = new GridAdapter(this.getActivity().getApplicationContext(), dayList, showM);
     gridView.setAdapter(gridAdapter);
 
     today = mCal.get(Calendar.DAY_OF_MONTH);
@@ -157,141 +248,11 @@ public class MainFragment extends Fragment {
     pd.setAlpha(70);
     gridView.setSelector(pd);
 
-
-
     return view;
   }
 
 
 
-  /**
-   * 해당 월에 표시할 일 수 구함
-   *
-   * @param month
-   */
-  private void setCalendarDate(int month) {
-    mCal.set(Calendar.MONTH, month - 1);
-
-    for (int i = 0; i < mCal.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
-      dayList.add("" + (i + 1));
-    }
-
-  }
-  //해당 날짜가 안에 있는지 검사하는 메소드
-  private boolean Day_in(String year, String month, int day){
-    if(day < 1) return false;
-    int m = Integer.parseInt(month);
-    int y = Integer.parseInt(year);
-
-    switch(m){
-      case 1: case 3: case 5: case 7: case 8: case 10: case 12:
-        if(day > 31) return false;
-        break;
-      case 4: case 6: case 9: case 11:
-        if(day > 30) return false;
-        break;
-      case 2:
-        if(y%4 == 0 && day > 29) return false;
-        if(y%4 > 0 && day > 28) return false;
-    }
-
-    return true;
-  }
-
-  int clickLeft,clickRight;
-  int lastM,lastY,nextM,nextY;
-
-  public void lastMonth(View v){
-    clickLeft++;
-    //gridview 요일 표시
-    dayList = new ArrayList<String>();
-    dayList.add("일");
-    dayList.add("월");
-    dayList.add("화");
-    dayList.add("수");
-    dayList.add("목");
-    dayList.add("금");
-    dayList.add("토");
-
-
-    showM--;
-
-    //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
-    mCal.set(showY, showM-1, 1);
-    dayNum = mCal.get(Calendar.DAY_OF_WEEK);
-    //Toast.makeText(getApplicationContext(), "dayNum = " + dayNum , Toast.LENGTH_SHORT).show();
-    //1일 - 요일 매칭 시키기 위해 공백 add
-    for (int i = 1; i < dayNum; i++) {
-      dayList.add("");
-    }
-    setCalendarDate(mCal.get(Calendar.MONTH) + 1);
-
-    lastM = Integer.parseInt(curMonthFormat.format(date))  - clickLeft;
-    lastY = Integer.parseInt(curYearFormat.format(date));
-
-    gridAdapter = new GridAdapter(getApplicationContext(), dayList, lastM);
-    gridView.setAdapter(gridAdapter);
-
-    if(showM<1){
-      showY--;
-      showM += 12;
-      //Toast.makeText(this, showM+"  "+showY, Toast.LENGTH_LONG).show();
-    }
-    if(showM<10) {
-      tvDate.setText(showY + "/" + "0" + showM);
-    }
-    else if(showM<=12){
-      tvDate.setText(showY + "/"  + showM);
-    }
-
-
-  }
-
-  public void nextMonth(View v){
-    clickRight++;
-    //gridview 요일 표시
-    dayList = new ArrayList<String>();
-    dayList.add("일");
-    dayList.add("월");
-    dayList.add("화");
-    dayList.add("수");
-    dayList.add("목");
-    dayList.add("금");
-    dayList.add("토");
-
-
-    showM++;
-    //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
-    mCal.set(showY, showM-1, 1);
-    dayNum = mCal.get(Calendar.DAY_OF_WEEK);
-    //Toast.makeText(getApplicationContext(), "dayNum = " + dayNum , Toast.LENGTH_SHORT).show();
-    //1일 - 요일 매칭 시키기 위해 공백 add
-    for (int i = 1; i < dayNum; i++) {
-      dayList.add("");
-    }
-    setCalendarDate(mCal.get(Calendar.MONTH) + 1);
-
-    nextM = Integer.parseInt(curMonthFormat.format(date))  + clickRight;
-    nextY = Integer.parseInt(curYearFormat.format(date));
-
-    gridAdapter = new GridAdapter(getApplicationContext(), dayList, nextM);
-    gridView.setAdapter(gridAdapter);
-
-    if(showM>12){
-      showY++;
-      showM-=12;
-
-    }
-    if(showM<10) {
-      tvDate.setText(showY + "/" + "0" + showM);
-    }
-    else if(nextM<=12){
-      tvDate.setText(showY + "/"  + showM);
-    }
-
-  }
-
-
 
   /**
    * 해당 월에 표시할 일 수 구함
@@ -331,95 +292,11 @@ public class MainFragment extends Fragment {
   int lastM,lastY,nextM,nextY;
 
   public void lastMonth(View v){
-    clickLeft++;
-    //gridview 요일 표시
-    dayList = new ArrayList<String>();
-    dayList.add("일");
-    dayList.add("월");
-    dayList.add("화");
-    dayList.add("수");
-    dayList.add("목");
-    dayList.add("금");
-    dayList.add("토");
-
-
-    showM--;
-
-    //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
-    mCal.set(showY, showM-1, 1);
-    dayNum = mCal.get(Calendar.DAY_OF_WEEK);
-    //Toast.makeText(getApplicationContext(), "dayNum = " + dayNum , Toast.LENGTH_SHORT).show();
-    //1일 - 요일 매칭 시키기 위해 공백 add
-    for (int i = 1; i < dayNum; i++) {
-      dayList.add("");
-    }
-    setCalendarDate(mCal.get(Calendar.MONTH) + 1);
-
-    lastM = Integer.parseInt(curMonthFormat.format(date))  - clickLeft;
-    lastY = Integer.parseInt(curYearFormat.format(date));
-
-    gridAdapter = new GridAdapter(getApplicationContext(), dayList, lastM);
-    gridView.setAdapter(gridAdapter);
-
-    if(showM<1){
-      showY--;
-      showM += 12;
-      //Toast.makeText(this, showM+"  "+showY, Toast.LENGTH_LONG).show();
-    }
-    if(showM<10) {
-      tvDate.setText(showY + "/" + "0" + showM);
-    }
-    else if(showM<=12){
-      tvDate.setText(showY + "/"  + showM);
-    }
 
 
   }
 
   public void nextMonth(View v){
-    clickRight++;
-    //gridview 요일 표시
-    dayList = new ArrayList<String>();
-    dayList.add("일");
-    dayList.add("월");
-    dayList.add("화");
-    dayList.add("수");
-    dayList.add("목");
-    dayList.add("금");
-    dayList.add("토");
-
-
-    showM++;
-    //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
-    mCal.set(showY, showM-1, 1);
-    dayNum = mCal.get(Calendar.DAY_OF_WEEK);
-    //Toast.makeText(getApplicationContext(), "dayNum = " + dayNum , Toast.LENGTH_SHORT).show();
-    //1일 - 요일 매칭 시키기 위해 공백 add
-    for (int i = 1; i < dayNum; i++) {
-      dayList.add("");
-    }
-    setCalendarDate(mCal.get(Calendar.MONTH) + 1);
-
-    nextM = Integer.parseInt(curMonthFormat.format(date))  + clickRight;
-    nextY = Integer.parseInt(curYearFormat.format(date));
-
-    gridAdapter = new GridAdapter(getApplicationContext(), dayList, nextM);
-    gridView.setAdapter(gridAdapter);
-
-    if(showM>12){
-      showY++;
-      showM-=12;
-
-    }
-    if(showM<10) {
-      tvDate.setText(showY + "/" + "0" + showM);
-    }
-    else if(nextM<=12){
-      tvDate.setText(showY + "/"  + showM);
-    }
-
   }
-
-
 
 }

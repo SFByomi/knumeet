@@ -14,8 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:src="@drawable/lastmonth"
-        android:onClick="lastMonth"/>
+        android:src="@drawable/lastmonth"/>
 
     <TextView
         android:id="@+id/tv_curdate"
@@ -31,8 +30,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:src="@drawable/nextmonth"
-        android:onClick="nextMonth"/>
+        android:src="@drawable/nextmonth"/>
   </LinearLayout>
 
   <GridView
