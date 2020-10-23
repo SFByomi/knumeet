@@ -1,15 +1,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-    tools:context="com.blueboard.knumeet.MainFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-  <WebView
+  <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:id="@+id/webView"
-      />
+      android:layout_height="0dp"
+      android:layout_weight="2"
+      android:orientation="horizontal">
 
+    <ImageView
+        android:id="@+id/iv_lastmonth"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/lastmonth"
+        android:onClick="lastMonth"/>
+
+    <TextView
+        android:id="@+id/tv_curdate"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="30dp" />
+
+    <ImageView
+        android:id="@+id/iv_nextmonth"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/nextmonth"
+        android:onClick="nextMonth"/>
+  </LinearLayout>
+
+  <GridView
+      android:id="@+id/gv_calender"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="10"
+      android:listSelector="#94A1EA"
+      android:numColumns="7"
+      android:paddingLeft="10dp"
+      android:paddingTop="20dp"
+      android:paddingRight="10dp"
+      android:paddingBottom="40dp"/>
 </LinearLayout>
