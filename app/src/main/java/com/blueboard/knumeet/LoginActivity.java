@@ -1,14 +1,14 @@
 package com.blueboard.knumeet;
-/*
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -29,15 +29,16 @@ import com.google.firebase.firestore.SetOptions;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 6969;
     private GoogleSignInClient mGoogleSignInClient;
     private SignInButton signInButton;
-
+    /* private EditText mEmail,mPassword;
+     private TextView tv_signup;
+     private Button btn_login;*/
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -68,10 +69,7 @@ public class LoginActivity extends AppCompatActivity{
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                startActivity(intent);
-                //signIn();
+                signIn();
             }
         });
 
@@ -87,7 +85,7 @@ public class LoginActivity extends AppCompatActivity{
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             }catch(Exception e){
-                Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "로그인 실패"  + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -129,4 +127,4 @@ public class LoginActivity extends AppCompatActivity{
         startActivityForResult(signIntent,RC_SIGN_IN);
     }
 
-}*/
+}

@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "720917589327",
-    "firebase_url": "https://everymeet.firebaseio.com",
-    "project_id": "everymeet",
-    "storage_bucket": "everymeet.appspot.com"
+    "project_number": "588098469046",
+    "firebase_url": "https://everymeet-fa599.firebaseio.com",
+    "project_id": "everymeet-fa599",
+    "storage_bucket": "everymeet-fa599.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:720917589327:android:d84ff8232c09d41d54693a",
+        "mobilesdk_app_id": "1:588098469046:android:691015b9741e1c8e353a17",
         "android_client_info": {
           "package_name": "com.blueboard.knumeet"
         }
       },
       "oauth_client": [
         {
-          "client_id": "720917589327-li7o4t4oj5fnin00p2k4296npmmfvagd.apps.googleusercontent.com",
-          "client_type": 3,
+          "client_id": "588098469046-q5iugg5v8a1pjcpvk1o98el16ccdn71r.apps.googleusercontent.com",
+          "client_type": 1,
           "android_info": {
             "package_name": "com.blueboard.knumeet",
             "certificate_hash": "a74654aefd4d7fd9dd63c6a8dbd1a473bd34acd6"
           }
         },
         {
-          "client_id": "720917589327-3st5jp1rf4bogtiv3f8a0ve0qf5lt6d5.apps.googleusercontent.com",
+          "client_id": "588098469046-941fvagki8vd3vmiijpngas5gf11ch5k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAU7hoBmFOQdbrP88zCDYoSsdy2xCDO8v0"
+          "current_key": "AIzaSyAAg3rII9IBFe1QocvWOxmPB_6XsbSdTQk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "720917589327-3st5jp1rf4bogtiv3f8a0ve0qf5lt6d5.apps.googleusercontent.com",
+              "client_id": "588098469046-941fvagki8vd3vmiijpngas5gf11ch5k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
