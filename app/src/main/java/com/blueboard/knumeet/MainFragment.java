@@ -1,6 +1,7 @@
 package com.blueboard.knumeet;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,6 +74,7 @@ public class MainFragment extends Fragment {
   int day;
 
   private View view;
+  public static int[] click_cnt = new int[50];
 
   public MainFragment() {
     // Required empty public constructor
@@ -82,6 +84,8 @@ public class MainFragment extends Fragment {
     MainFragment fragment = new MainFragment();
     return fragment;
   }
+
+
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -95,6 +99,23 @@ public class MainFragment extends Fragment {
     iv_last =  (ImageView)view.findViewById(R.id.iv_lastmonth);
     iv_next =  (ImageView)view.findViewById(R.id.iv_nextmonth);
     btn_create = (Button) view.findViewById(R.id.btn_createroom);
+
+    gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        if(click_cnt[i] == 0)
+        {
+          view.setBackgroundColor(Color.GREEN);
+          click_cnt[i] = 1;
+        }
+        else
+        {
+          view.setBackgroundColor(Color.RED);
+          click_cnt[i] = 0;
+        }
+      }
+    });
+
 
     iv_last.setOnClickListener(new View.OnClickListener() {
       @Override
