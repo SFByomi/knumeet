@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +26,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import androidx.fragment.app.Fragment;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,6 +59,7 @@ public class MainFragment extends Fragment {
 
   ImageView iv_last;
   ImageView iv_next;
+  Button btn_create;
 
   public static int color=0;
   SharedPreferences pref;
@@ -90,12 +94,12 @@ public class MainFragment extends Fragment {
     gridView = (GridView)view.findViewById(R.id.gv_calender);
     iv_last =  (ImageView)view.findViewById(R.id.iv_lastmonth);
     iv_next =  (ImageView)view.findViewById(R.id.iv_nextmonth);
+    btn_create = (Button) view.findViewById(R.id.btn_createroom);
 
     iv_last.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
 
-        clickLeft++;
         //gridview 요일 표시
         dayList = new ArrayList<String>();
         dayList.add("일");
@@ -119,7 +123,7 @@ public class MainFragment extends Fragment {
         }
         setCalendarDate(mCal.get(Calendar.MONTH) + 1);
 
-        lastM = Integer.parseInt(curMonthFormat.format(date))  - clickLeft;
+        lastM = Integer.parseInt(curMonthFormat.format(date));
         lastY = Integer.parseInt(curYearFormat.format(date));
 
         gridAdapter = new GridAdapter(view.getContext().getApplicationContext(), dayList, lastM);
@@ -142,7 +146,6 @@ public class MainFragment extends Fragment {
       @Override
       public void onClick(View view) {
 
-        clickRight++;
         //gridview 요일 표시
         dayList = new ArrayList<String>();
         dayList.add("일");
@@ -165,7 +168,7 @@ public class MainFragment extends Fragment {
         }
         setCalendarDate(mCal.get(Calendar.MONTH) + 1);
 
-        nextM = Integer.parseInt(curMonthFormat.format(date))  + clickRight;
+        nextM = Integer.parseInt(curMonthFormat.format(date));
         nextY = Integer.parseInt(curYearFormat.format(date));
 
         gridAdapter = new GridAdapter(view.getContext().getApplicationContext(), dayList, nextM);
@@ -184,6 +187,17 @@ public class MainFragment extends Fragment {
         }
       }
     });
+
+    btn_create.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+
+        //데이터 담아서 팝업(액티비티) 호출
+        Intent intent = new Intent(view.getContext(), PopupActivity.class);
+        startActivityForResult(intent, 1);
+      }
+    });
+
 
     pref =  this.getContext().getSharedPreferences("pref", this.getContext().MODE_PRIVATE);
     color = pref.getInt("key2", -8331542);
@@ -288,15 +302,17 @@ public class MainFragment extends Fragment {
     return true;
   }
 
-  int clickLeft,clickRight;
   int lastM,lastY,nextM,nextY;
 
-  public void lastMonth(View v){
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == 1) {
+      if (resultCode == RESULT_OK) {
+        data.setClass(view.getContext(), ScheduleRoomActivity.class);
 
-
+//        setContentView(tv);
+        startActivity(data);
+      }
+    }
   }
-
-  public void nextMonth(View v){
-  }
-
 }

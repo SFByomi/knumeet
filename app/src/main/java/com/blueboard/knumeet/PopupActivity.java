@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.TextView;
 
 public class PopupActivity extends Activity {
     @Override
@@ -36,10 +35,10 @@ public class PopupActivity extends Activity {
         }
         return true;
     }
-
-    @Override
-    public void onBackPressed() {
-        //안드로이드 백버튼 막기
-        return;
-    }
+//
+//    @Override
+//    public void onBackPressed() {
+//        //안드로이드 백버튼 막기
+//        return;
+//    }
 }
