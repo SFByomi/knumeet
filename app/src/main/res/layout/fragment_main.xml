@@ -33,6 +33,13 @@
         android:src="@drawable/nextmonth"/>
   </LinearLayout>
 
+  <Button
+      android:id="@+id/btn_createroom"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:text="CREATE"/>
+
   <GridView
       android:id="@+id/gv_calender"
       android:layout_width="match_parent"
@@ -43,13 +50,6 @@
       android:paddingLeft="10dp"
       android:paddingTop="20dp"
       android:paddingRight="10dp"
-      android:paddingBottom="40dp"/>
-
-  <Button
-      android:id="@+id/btn_createroom"
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="1"
-      android:text="CREATE"/>
+      android:paddingBottom="40dp" />
 
 </LinearLayout>

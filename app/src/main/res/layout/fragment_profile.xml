@@ -1,106 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.blueboard.knumeet.ProfileFragment"
-    android:paddingHorizontal="50dp"
-    >
-
-
-  <TextView
-      android:layout_marginTop="50dp"
-      android:id="@+id/txt_profile_name"
-    android:textStyle="bold"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-      android:layout_gravity="top"
-    android:gravity="center"
-    android:text="요민!님 안녕하세요."
-    android:textSize="40sp"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.blueboard.knumeet.ProfileFragment">
 
-      />
-
-  <LinearLayout
+  <com.wisnu.datetimerangepickerandroid.CalendarPickerView
+      android:id="@+id/calendar_view"
       android:layout_width="match_parent"
-      android:layout_height="100dp"
-      android:layout_marginTop="40dp"
-      android:orientation="horizontal">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="50dp"
-          android:paddingTop="20dp"
-          android:text="키"
-
-          android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-          android:textSize="22sp" />
-
-
-
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="50dp"
-          android:paddingTop="20dp"
-          android:text="몸무게"
-          android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-          android:textSize="22sp" />
-
-      <Space
-          android:layout_width="0dp"
-          android:layout_height="50dp"
-          android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="1" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-      <TextView
-          android:id="@+id/txt_profile_height"
-          android:layout_width="50dp"
-          android:layout_height="50dp"
-          android:paddingTop="20dp"
-          android:text="171"
-          android:gravity="center"
-          android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-          android:textSize="20sp"
-          />
-
-
-
-      <TextView
-          android:id="@+id/txt_profile_weight"
-          android:layout_width="50dp"
-          android:layout_height="50dp"
-          android:paddingTop="20dp"
-          android:gravity="center"
-          android:text="50"
-
-          android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-          android:textSize="20sp" />
-
-      <Space
-          android:layout_width="0dp"
-          android:layout_height="50dp"
-          android:layout_weight="1" />
-
-
-
-    </LinearLayout>
-  </LinearLayout>
+      android:layout_height="match_parent"
+      />
 
 
 
