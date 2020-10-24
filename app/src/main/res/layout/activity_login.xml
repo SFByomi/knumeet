@@ -5,8 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-
+    android:background="@color/colorPrimary"
     >
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/mon_semibold"
+        android:gravity="center"
+        android:text="KNU\nMEET"
+        android:textColor="@color/colorWhite"
+        android:textSize="50sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_sign_in_button"
@@ -20,6 +33,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintVertical_bias="0.744" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

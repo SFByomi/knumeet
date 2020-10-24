@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);//메인액티비티
-        Button btn_go_select = (Button) findViewById(R.id.btn_go_select);
-        Button bnt_go_enter = (Button) findViewById(R.id.btn_go_enter);
+        ImageButton btn_go_select = (ImageButton) findViewById(R.id.btn_go_select);
+        ImageButton bnt_go_enter = (ImageButton) findViewById(R.id.btn_go_enter);
 
         btn_go_select.setOnClickListener(new View.OnClickListener() {
             @Override
