@@ -10,13 +10,15 @@
    <TextView
        android:id="@+id/textView6"
        android:layout_width="match_parent"
-       android:layout_height="50dp"
-       android:fontFamily="@font/mon_semibold"
-       android:gravity="center"
-       android:text="KNUMEET"
-       android:textColor="@color/colorBlack"
-       android:textSize="25sp"
-       android:background="@drawable/rectangle_shape"
+       android:layout_height="150dp"
+       android:fontFamily="@font/nanum_bold"
+       android:gravity="bottom"
+       android:paddingBottom="30dp"
+       android:paddingLeft="30dp"
+       android:text="만남계획"
+       android:textColor="@color/colorWhite"
+       android:textSize="35sp"
+       android:background="@drawable/gradation_shape_main"
        android:elevation="10dp"
        app:layout_constraintTop_toTopOf="parent"
        tools:layout_editor_absoluteX="-16dp" />
@@ -27,11 +29,10 @@
        android:layout_height="80dp"
 
 
-       android:layout_marginStart="80dp"
-       android:layout_marginLeft="80dp"
-       android:layout_marginTop="32dp"
+       android:layout_marginStart="28dp"
+       android:layout_marginLeft="28dp"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/textView6" />
+       app:layout_constraintTop_toTopOf="@+id/btn_go_enter" />
 
    <TextView
        android:id="@+id/textView7"
@@ -51,9 +52,8 @@
        android:layout_height="80dp"
 
        android:layout_marginTop="32dp"
-       android:layout_marginEnd="80dp"
-       android:layout_marginRight="80dp"
-       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintEnd_toStartOf="@+id/btn_logout"
+       app:layout_constraintStart_toEndOf="@+id/btn_go_select"
        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
@@ -69,16 +69,40 @@
        app:layout_constraintStart_toStartOf="@+id/btn_go_enter"
        app:layout_constraintTop_toBottomOf="@+id/btn_go_enter" />
 
+
+   <ImageButton
+       android:id="@+id/btn_logout"
+       android:layout_width="80dp"
+       android:layout_height="80dp"
+
+       android:layout_marginEnd="28dp"
+       android:layout_marginRight="28dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toTopOf="@+id/btn_go_enter" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:fontFamily="@font/nanum_bold"
+
+       android:textSize="14sp"
+       android:text="입장"
+       android:textColor="@color/colorBlack"
+       app:layout_constraintEnd_toEndOf="@+id/btn_go_enter"
+       app:layout_constraintStart_toStartOf="@+id/btn_go_enter"
+       app:layout_constraintTop_toBottomOf="@+id/btn_go_enter" />
+
    <ListView
-       android:layout_width="350dp"
-       android:layout_height="470dp"
+
+       android:layout_width="0dp"
+       android:layout_height="0dp"
        android:layout_marginTop="40dp"
        android:background="@drawable/corner_shape"
        android:elevation="10dp"
-
+      android:layout_marginHorizontal="30dp"
+       android:layout_marginBottom="20dp"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.491"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 

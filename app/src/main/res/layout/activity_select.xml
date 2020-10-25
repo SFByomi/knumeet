@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".SelectActivity"
     app:layout_constraintHorizontal_weight="2"
+    android:padding="10dp"
     >
 
     <ImageButton
@@ -21,6 +22,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:background="@drawable/corner_shape"
+        android:elevation="5dp"
+        android:layout_margin="5dp"
         android:id="@+id/btn_Start_time"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -33,7 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="시작 시간:"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/nanum_bold"
+            android:textColor="@color/colorBlack" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,6 +50,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:background="@drawable/corner_shape"
+        android:elevation="5dp"
+        android:layout_margin="5dp"
         android:id="@+id/btn_end_time"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -57,7 +66,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="마감 시간:"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/nanum_bold"
+            android:textColor="@color/colorBlack" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -77,6 +88,9 @@
         tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
+            android:background="@drawable/corner_shape"
+            android:elevation="5dp"
+            android:layout_margin="5dp"
             android:id="@+id/btn_how_long"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -86,23 +100,47 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="소요 시간 :1 시간"
-                android:textSize="25sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_how_many_people"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
+                android:text="소요 시간 : "
+                android:textSize="20sp"
+                android:fontFamily="@font/nanum_bold"
+                android:textColor="@color/colorBlack"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="인원 : 2 명"
-                android:textSize="25sp" />
+                android:text="1 시간"
+                android:textSize="20sp"
+                android:fontFamily="@font/nanum_bold"
+                android:textColor="@color/colorUnClicked"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/corner_shape"
+            android:elevation="5dp"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_how_many_people"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="인원: "
+                android:textSize="20sp"
+                android:fontFamily="@font/nanum_bold"
+                android:textColor="@color/colorBlack" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="2인"
+                android:textSize="20sp"
+                android:fontFamily="@font/nanum_bold"
+                android:textColor="@color/colorUnClicked" />
 
         </LinearLayout>
 
@@ -118,9 +156,13 @@
         tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
+            android:background="@drawable/corner_shape"
+            android:elevation="5dp"
+            android:layout_margin="5dp"
             android:id="@+id/btn_start_calendar_1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:layout_weight="1">
 
             <TextView
@@ -128,14 +170,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="10월 19일(목)"
-                android:textSize="25sp" />
+                android:textSize="20sp"
+                android:fontFamily="@font/nanum_bold"
+                android:textColor="@color/colorUnClicked" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/corner_shape"
+            android:elevation="5dp"
+            android:layout_margin="5dp"
             android:id="@+id/btn_start_calendar_2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:layout_weight="1">
 
             <TextView
@@ -143,17 +191,23 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="10월 26일(목)"
-                android:textSize="25sp" />
+                android:textSize="20sp"
+                android:fontFamily="@font/nanum_bold"
+                android:textColor="@color/colorUnClicked" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
+        android:background="@drawable/corner_shape"
+
+        android:elevation="5dp"
         android:id="@+id/title_layout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
+        android:layout_margin="5dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/btn_back_select_to_home"
         tools:layout_editor_absoluteX="0dp">
@@ -163,7 +217,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="제목 :"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/nanum_bold"
+            android:textColor="@color/colorBlack"/>
 
         <EditText
             android:layout_width="wrap_content"
@@ -175,13 +231,17 @@
 
     <Button
         android:id="@+id/btn_go_makeinfo"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/corner_shape_blue"
 
-
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
+        android:fontFamily="@font/nanum_bold"
+        android:text="만들기"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
