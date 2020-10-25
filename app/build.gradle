@@ -44,7 +44,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:19.2.0'
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation "com.github.SFByomi:date-time-range-picker-android:1.0.12"
+    implementation "com.github.SFByomi:date-time-range-picker-android:1.0.13"
 
 
 }

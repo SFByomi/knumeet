@@ -7,60 +7,21 @@
     android:orientation="vertical"
     tools:context=".SelectCalendarActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintTop_toBottomOf="@+id/btn_end_time"
-        tools:layout_editor_absoluteX="0dp">
-
-        <LinearLayout
-            android:background="@drawable/corner_shape"
-            android:elevation="5dp"
-            android:layout_margin="5dp"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="10월 19일(목)"
-                android:textSize="20sp"
-                android:fontFamily="@font/nanum_regular"
-                android:textColor="@color/colorUnClicked" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:background="@drawable/corner_shape"
-            android:elevation="5dp"
-            android:layout_margin="5dp"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="10월 26일(목)"
-                android:textSize="20sp"
-                android:fontFamily="@font/nanum_regular"
-                android:textColor="@color/colorUnClicked" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
     <com.wisnu.datetimerangepickerandroid.CalendarPickerView
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
+    <Button
+        android:id="@+id/btn_select_save"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/corner_shape_blue"
+        android:fontFamily="@font/nanum_bold"
+        android:text="확인"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp" />
 
 </LinearLayout>
