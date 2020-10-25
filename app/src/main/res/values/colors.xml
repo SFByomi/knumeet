@@ -9,12 +9,12 @@
     <color name="colorUnClicked">#BEBEBE</color>
     <color name="colorClicked">#A3A0A0A0</color>
 
-    <color name="calendar_selected_day_bg">#1F44FF</color>
-    <color name="calendar_selected_range_bg">#7B91FF</color>
+    <color name="calendar_selected_day_bg">#6F86FF</color>
+    <color name="calendar_selected_range_bg">#E0E6FF</color>
 
 
-    <color name="calendar_unavailable_bg">#0049FF</color>
-    <color name="calendar_range_middle_unavailable_bg">#809FFF</color>
+    <color name="calendar_unavailable_bg">#6F86FF</color>
+    <color name="calendar_range_middle_unavailable_bg">#E0E6FF</color>
 
 
     <color name="calendar_range_middle_deactivated_bg">#673AB7</color>
