@@ -17,26 +17,26 @@
         android:background="@drawable/rectangle_shape"
         android:orientation="horizontal">
         <LinearLayout
-            android:layout_marginTop="10dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageButton
                 android:id="@+id/btn_back_info_to"
-                android:layout_width="35dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/back_btn"
-                android:layout_gravity="left"
-                />
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_baseline_arrow_back_ios_24" />
         </LinearLayout>
 
         <TextView
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:text="시간설정"
             android:textColor="@color/colorBlack"
             android:fontFamily="@font/nanum_bold"

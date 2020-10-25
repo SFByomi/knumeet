@@ -25,12 +25,13 @@
 
    <ImageButton
        android:id="@+id/btn_go_select"
-       android:layout_width="80dp"
-       android:layout_height="80dp"
+       android:layout_width="60dp"
+       android:layout_height="60dp"
+       android:layout_marginStart="48dp"
 
+       android:layout_marginLeft="48dp"
 
-       android:layout_marginStart="28dp"
-       android:layout_marginLeft="28dp"
+       android:background="@drawable/ic_baseline_add_24"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="@+id/btn_go_enter" />
 
@@ -38,37 +39,41 @@
        android:id="@+id/textView7"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:fontFamily="@font/nanum_bold"
+       android:fontFamily="@font/nanum_regular"
        android:text="새로 만들기"
+       android:layout_marginTop="8dp"
        android:textColor="@color/colorBlack"
        android:textSize="14sp"
        app:layout_constraintEnd_toEndOf="@+id/btn_go_select"
        app:layout_constraintStart_toStartOf="@+id/btn_go_select"
        app:layout_constraintTop_toBottomOf="@+id/btn_go_select" />
 
+
    <ImageButton
        android:id="@+id/btn_go_enter"
-       android:layout_width="80dp"
-       android:layout_height="80dp"
+       android:layout_width="60dp"
+       android:layout_height="60dp"
+       android:layout_marginTop="36dp"
 
-       android:layout_marginTop="32dp"
+       android:background="@drawable/enter_png_754966"
        app:layout_constraintEnd_toStartOf="@+id/btn_logout"
+       app:layout_constraintHorizontal_bias="0.496"
        app:layout_constraintStart_toEndOf="@+id/btn_go_select"
        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
 
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:fontFamily="@font/nanum_bold"
+       android:layout_marginTop="8dp"
 
-       android:textSize="14sp"
-       android:text="입장"
+       android:fontFamily="@font/nanum_regular"
+       android:text="입장하기"
        android:textColor="@color/colorBlack"
+       android:textSize="14sp"
        app:layout_constraintEnd_toEndOf="@+id/btn_go_enter"
+       app:layout_constraintHorizontal_bias="0.514"
        app:layout_constraintStart_toStartOf="@+id/btn_go_enter"
        app:layout_constraintTop_toBottomOf="@+id/btn_go_enter" />
-
 
    <ImageButton
        android:id="@+id/btn_logout"
@@ -79,18 +84,6 @@
        android:layout_marginRight="28dp"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintTop_toTopOf="@+id/btn_go_enter" />
-
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:fontFamily="@font/nanum_bold"
-
-       android:textSize="14sp"
-       android:text="입장"
-       android:textColor="@color/colorBlack"
-       app:layout_constraintEnd_toEndOf="@+id/btn_go_enter"
-       app:layout_constraintStart_toStartOf="@+id/btn_go_enter"
-       app:layout_constraintTop_toBottomOf="@+id/btn_go_enter" />
 
    <ListView
 
