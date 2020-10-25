@@ -68,16 +68,17 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_baseline_play_arrow_gray"
             android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_play_arrow_gray"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
         <TextView
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_Start_time"
+            android:layout_width="319dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
             android:fontFamily="@font/nanum_regular"
             android:text="탐색 시작 시간:"
             android:textSize="18sp" />
@@ -104,12 +105,13 @@
             android:textSize="20sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_End_time"
+            android:layout_width="319dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="탐색 마감 시간:"
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/nanum_regular"
+            android:text="탐색 마감 시간:"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -134,14 +136,22 @@
             />
 
         <TextView
-            android:layout_marginLeft="5dp"
+            android:id="@+id/tv_how_long"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
             android:fontFamily="@font/nanum_regular"
             android:text="소요시간:"
             android:textColor="@color/colorUnClicked"
             android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:entries="@array/__" />
 
     </LinearLayout>
 
@@ -170,14 +180,22 @@
             android:textSize="20sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_how_many_people"
+            android:layout_width="69dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/nanum_regular"
             android:layout_marginLeft="5dp"
+            android:fontFamily="@font/nanum_regular"
             android:text="인원:"
             android:textColor="@color/colorUnClicked"
             android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:entries="@array/__" />
     </LinearLayout>
 
     <LinearLayout
