@@ -68,7 +68,8 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_baseline_play_arrow_gray"
+            android:src="@drawable/ic_baseline_play_arrow_gray"
+            android:scaleType="fitXY"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -97,8 +98,8 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_baseline_pause_24"
-
+            android:src="@drawable/ic_baseline_pause_24"
+            android:scaleType="fitXY"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -116,6 +117,7 @@
         android:id="@+id/btn_how_long"
         android:layout_width="0dp"
         android:layout_height="60dp"
+        android:elevation="5dp"
         android:background="@drawable/corner_shape"
         android:layout_marginTop="5dp"
         app:layout_constraintWidth_default="percent"
@@ -127,7 +129,8 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
-           android:background="@drawable/ic_baseline_timer_gray"
+            android:src="@drawable/ic_baseline_timer_gray"
+            android:scaleType="fitXY"
             />
 
         <TextView
@@ -161,9 +164,8 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/nanum_bold"
-
-            android:background="@drawable/ic_baseline_people_outline_gray"
+            android:src="@drawable/ic_baseline_people_outline_gray"
+            android:scaleType="fitXY"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -234,6 +236,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@drawable/corner_shape"
+
         android:elevation="5dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -243,9 +246,9 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:src="@drawable/ic_baseline_title_gray"
+            android:scaleType="fitXY"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/nanum_bold"
-            android:background="@drawable/ic_baseline_title_gray"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -256,7 +259,7 @@
             android:layout_gravity="center_vertical"
 
             android:hint="제목 :"
-            android:textColor="@color/colorUnClicked"
+            android:textColor="@color/colorBlack"
             android:textSize="20sp" />
     </LinearLayout>
 
