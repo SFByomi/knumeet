@@ -111,9 +111,8 @@ public class SelectActivity extends AppCompatActivity {
                     @RequiresApi(api = Build.VERSION_CODES.M)
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        tv_Start_time.setText("탐색 시작 시간:  "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
+                        tv_Start_time.setText("시작 시간:  "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
                         tv_Start_time.setTextColor(getColor(R.color.colorBlack));
-                        btn_End_time.performClick();
                         ImageView image = (ImageView)findViewById(R.id.image_start_time);
                         image.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
                     }
@@ -130,7 +129,7 @@ public class SelectActivity extends AppCompatActivity {
                     @RequiresApi(api = Build.VERSION_CODES.M)
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        tv_End_time.setText("탐색 마감 시간:  "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
+                        tv_End_time.setText("마감 시간:  "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
                         tv_End_time.setTextColor(getColor(R.color.colorBlack));
                         ImageView image = (ImageView)findViewById(R.id.image_end_time);
                         image.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
