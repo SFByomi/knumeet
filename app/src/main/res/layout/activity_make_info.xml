@@ -188,7 +188,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="2020/10/10 ~ 2020/10/19"
+                android:text="2020-10-10 ~ 2020-10-19"
                 android:textColor="@color/colorBlack"
                 android:gravity="center_vertical"
                 android:textSize="18sp"

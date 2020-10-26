@@ -66,21 +66,17 @@ public class SelectCalendarActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
 
-                Date Start_date=calendar.getSelectedDates().get(0);
+                Date Start_date = calendar.getSelectedDates().get(0);
                 String Start=transFormat.format(Start_date);
-                Date End_date=calendar.getSelectedDates().get(calendar.getSelectedDates().size()-1);
-                String End=transFormat.format(Start_date);
+
+                Date End_date = calendar.getSelectedDates().get(calendar.getSelectedDates().size()-1);
+                String End=transFormat.format(End_date);
 
                 Intent intent = getIntent();
 
-                cal.setTime(Start_date);
-                char Start_day=day[cal.get(Calendar.DAY_OF_WEEK)];
-                intent.putExtra("Start_date", transFormat2.format(Start_date) +" ("+Start_day+")");
-
-                cal.setTime(End_date);
-                char End_day=day[cal.get(Calendar.DAY_OF_WEEK)];
-                intent.putExtra("End_date",transFormat2.format(End_date)+" ("+End_day+")");
-
+                intent.putExtra("Start_date", Start);
+                intent.putExtra("End_date", End);
+                setResult(RESULT_OK,intent);
                 finish();
             }
         });
