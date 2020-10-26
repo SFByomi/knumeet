@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Layout;
@@ -19,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -63,11 +65,15 @@ public class SelectActivity extends AppCompatActivity {
 
         et_title = (EditText)findViewById(R.id.edit_title);
         et_title.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                 if (actionId == EditorInfo.IME_ACTION_NEXT) {
                     et_title.setSelected(false);
                     et_title.clearFocus();
+                    hideKeyboard();
+                    ImageView image_title = (ImageView)findViewById(R.id.image_title);
+                    image_title.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
                     return true;
                 }
                 return false;
@@ -108,6 +114,8 @@ public class SelectActivity extends AppCompatActivity {
                         tv_Start_time.setText("탐색 시작 시간:  "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
                         tv_Start_time.setTextColor(getColor(R.color.colorBlack));
                         btn_End_time.performClick();
+                        ImageView image = (ImageView)findViewById(R.id.image_start_time);
+                        image.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
                     }
                 }, Start_time_hour,Start_time_min,false);
                 timePickerDialog1.show();
@@ -124,6 +132,8 @@ public class SelectActivity extends AppCompatActivity {
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
                         tv_End_time.setText("탐색 마감 시간:  "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
                         tv_End_time.setTextColor(getColor(R.color.colorBlack));
+                        ImageView image = (ImageView)findViewById(R.id.image_end_time);
+                        image.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
                     }
                 }, End_time_hour,End_time_min,false);
                 timePickerDialog1.show();
@@ -181,6 +191,11 @@ public class SelectActivity extends AppCompatActivity {
 
             tv_end_date.setText(Start_date);
             tv_end_date.setTextColor(getColor(R.color.colorBlack));
+
+            ImageView image_start_date = (ImageView)findViewById(R.id.image_start_date);
+            image_start_date.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
+            ImageView image_end_date = (ImageView)findViewById(R.id.image_end_date);
+            image_end_date.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
 
         }else{
 
