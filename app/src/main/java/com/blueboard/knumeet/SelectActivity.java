@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class SelectActivity extends AppCompatActivity {
     TextView tv_Start_time, tv_End_time;
     TextView tv_start_date,tv_end_date;
     TimePickerDialog timePickerDialog;
+    ImageButton btn_back_select_to_home;
     Intent intent;
 
     @Override
@@ -43,6 +45,8 @@ public class SelectActivity extends AppCompatActivity {
         tv_start_date=(TextView) findViewById(R.id.tv_start_date);
         tv_end_date=(TextView) findViewById(R.id.tv_end_date);
 
+        btn_back_select_to_home = (ImageButton) findViewById(R.id.btn_back_select_to_home);
+
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
         btn_start_calendar_1.setOnClickListener(new View.OnClickListener() {
@@ -60,11 +64,11 @@ public class SelectActivity extends AppCompatActivity {
             }
         });
 
-        if(intent!=null){
-                Log.d("hibaby",intent.getStringExtra("Start_date"));
-                tv_start_date.setText(intent.getStringExtra("Start_date"));
-                tv_end_date.setText(intent.getStringExtra("End_date"));
-        }
+//        if(intent!=null){
+//                Log.d("hibaby",intent.getStringExtra("Start_date"));
+//                tv_start_date.setText(intent.getStringExtra("Start_date"));
+//                tv_end_date.setText(intent.getStringExtra("End_date"));
+//        }
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -114,7 +118,12 @@ public class SelectActivity extends AppCompatActivity {
             }
         });
 
-
+        btn_back_select_to_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 }
