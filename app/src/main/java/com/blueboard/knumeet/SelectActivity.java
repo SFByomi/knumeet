@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -19,9 +20,11 @@ import org.w3c.dom.Text;
 public class SelectActivity extends AppCompatActivity {
     int Start_time_hour=0,Start_time_min=0;
     int End_time_hour=0,End_time_min=0;
-    TextView tv_Start_time;
-    TextView tv_End_time;
+    TextView tv_Start_time, tv_End_time;
+    TextView tv_start_date,tv_end_date;
     TimePickerDialog timePickerDialog;
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,23 +40,31 @@ public class SelectActivity extends AppCompatActivity {
 
         tv_Start_time= (TextView) findViewById(R.id.tv_Start_time);
         tv_End_time= (TextView) findViewById(R.id.tv_End_time);
+        tv_start_date=(TextView) findViewById(R.id.tv_start_date);
+        tv_end_date=(TextView) findViewById(R.id.tv_end_date);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
         btn_start_calendar_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),SelectCalendarActivity.class);
+                intent = new Intent(getApplicationContext(),SelectCalendarActivity.class);
                 startActivity(intent);
             }
         });
         btn_start_calendar_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),SelectCalendarActivity.class);
+                intent = new Intent(getApplicationContext(),SelectCalendarActivity.class);
                 startActivity(intent);
             }
         });
+
+        if(intent!=null){
+                Log.d("hibaby",intent.getStringExtra("Start_date"));
+                tv_start_date.setText(intent.getStringExtra("Start_date"));
+                tv_end_date.setText(intent.getStringExtra("End_date"));
+        }
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -78,6 +89,7 @@ public class SelectActivity extends AppCompatActivity {
                     }
                 }, Start_time_hour,Start_time_min,false);
                 timePickerDialog.show();
+
             }
         });
         btn_End_time.setOnClickListener(new View.OnClickListener() {
