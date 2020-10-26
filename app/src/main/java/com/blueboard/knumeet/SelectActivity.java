@@ -38,6 +38,7 @@ public class SelectActivity extends AppCompatActivity {
     private ImageButton btn_back_select_to_home;
     private Intent intent;
     private EditText et_title;
+    private int cnt = 0;
     public void hideKeyboard(){
         InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         im.hideSoftInputFromWindow(et_title.getWindowToken(), 0);
@@ -89,7 +90,6 @@ public class SelectActivity extends AppCompatActivity {
 //                tv_start_date.setText(intent.getStringExtra("Start_date"));
 //                tv_end_date.setText(intent.getStringExtra("End_date"));
 //        }
-
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
