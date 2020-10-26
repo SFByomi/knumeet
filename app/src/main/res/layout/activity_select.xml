@@ -81,6 +81,7 @@
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/nanum_regular"
             android:text="탐색 시작 시간:"
+            android:textColor="#000000"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -112,6 +113,7 @@
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/nanum_regular"
             android:text="탐색 마감 시간:"
+            android:textColor="#000000"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -143,7 +145,7 @@
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/nanum_regular"
             android:text="소요시간:"
-            android:textColor="@color/colorUnClicked"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
         <Spinner
@@ -187,7 +189,7 @@
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/nanum_regular"
             android:text="인원:"
-            android:textColor="@color/colorUnClicked"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
         <Spinner
@@ -220,7 +222,7 @@
             android:layout_gravity="center_vertical"
             android:fontFamily="@font/nanum_regular"
             android:text="10월 19일(목)"
-            android:textColor="@color/colorUnClicked"
+            android:textColor="#000000"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -246,7 +248,7 @@
             android:layout_gravity="center_vertical"
             android:fontFamily="@font/nanum_regular"
             android:text="10월 26일(목)"
-            android:textColor="@color/colorUnClicked"
+            android:textColor="#000000"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -279,7 +281,7 @@
             android:layout_gravity="center_vertical"
 
             android:hint="제목 :"
-            android:textColor="@color/colorBlack"
+            android:textColor="#000000"
             android:textSize="20sp" />
     </LinearLayout>
 
