@@ -188,7 +188,7 @@ public class SelectActivity extends AppCompatActivity {
             tv_start_date.setText(Start_date);
             tv_start_date.setTextColor(getColor(R.color.colorBlack));
 
-            tv_end_date.setText(Start_date);
+            tv_end_date.setText(End_date);
             tv_end_date.setTextColor(getColor(R.color.colorBlack));
 
             ImageView image_start_date = (ImageView)findViewById(R.id.image_start_date);
