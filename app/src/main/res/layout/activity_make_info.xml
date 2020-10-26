@@ -217,31 +217,49 @@
         android:layout_marginVertical="10dp"
         android:layout_marginHorizontal="10dp"
         >
-        <ListView
+        <LinearLayout
             android:layout_marginVertical="12dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
             android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_days"
+                android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/corner_shape"
             />
+
+        </LinearLayout>
+
         <ImageView
             android:src="@drawable/line_shape"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginVertical="30dp"
             />
-        <ListView
+
+        <LinearLayout
             android:layout_marginVertical="12dp"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            >
 
-            android:background="@drawable/corner_shape"
-            />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_times"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/corner_shape"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
+
     <Button
         android:elevation="5dp"
         android:layout_width="match_parent"
