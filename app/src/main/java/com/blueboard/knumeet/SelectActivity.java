@@ -1,10 +1,13 @@
 package com.blueboard.knumeet;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -70,6 +73,7 @@ public class SelectActivity extends AppCompatActivity {
 //                tv_end_date.setText(intent.getStringExtra("End_date"));
 //        }
 
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -87,9 +91,11 @@ public class SelectActivity extends AppCompatActivity {
             public void onClick(View view) {
                 timePickerDialog = new TimePickerDialog(
                         SelectActivity.this,new TimePickerDialog.OnTimeSetListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.M)
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        tv_Start_time.setText("탐색 시작 시간: "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
+                        tv_Start_time.setText("탐색 시작 시간  "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
+                        tv_Start_time.setTextColor(getColor(R.color.colorBlack));
                     }
                 }, Start_time_hour,Start_time_min,false);
                 timePickerDialog.show();
@@ -103,7 +109,7 @@ public class SelectActivity extends AppCompatActivity {
                         SelectActivity.this,new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        tv_End_time.setText("탐색 마감 시간: "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
+                        tv_End_time.setText("탐색 마감 시간  "+String.valueOf(i)+"시 "+String.valueOf(i1)+"분");
                     }
                 }, End_time_hour,End_time_min,false);
                 timePickerDialog.show();
