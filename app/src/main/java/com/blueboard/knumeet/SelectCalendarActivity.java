@@ -31,12 +31,12 @@ import static com.wisnu.datetimerangepickerandroid.CalendarPickerView.SelectionM
 
 
 public class SelectCalendarActivity extends AppCompatActivity {
-    Button btn_select_save;
-    CalendarPickerView calendar;
-    SimpleDateFormat transFormat,transFormat2;
-    String pattern="YYYY-MM-dd";
-    TextView tv_start_date,tv_end_date;
-    char[] day={'일','일','월','화','수','목','금','토'};
+    private Button btn_select_save;
+    private CalendarPickerView calendar;
+    private SimpleDateFormat transFormat,transFormat2;
+    private String pattern="YYYY-MM-dd";
+    private TextView tv_start_date,tv_end_date;
+    private char[] day={'일','일','월','화','수','목','금','토'};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
