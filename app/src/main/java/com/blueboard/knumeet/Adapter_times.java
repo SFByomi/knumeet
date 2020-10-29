@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class Adapter_times extends RecyclerView.Adapter<Adapter_times.CustomViewHolder> {
 
-    private int[] arr_times = new int [24];
+    private int[] arr_times = new int [12];
     private Context context;
 
     public Adapter_times(Context context) {
@@ -30,12 +30,12 @@ public class Adapter_times extends RecyclerView.Adapter<Adapter_times.CustomView
 
     @Override
     public void onBindViewHolder(@NonNull Adapter_times.CustomViewHolder holder, int position) {
-       holder.tv_times.setText(position +"~" +  (position + 1));
+       holder.tv_times.setText((position + 12) +" : " + "00");
     }
 
     @Override
     public int getItemCount() {
-        return (24);
+        return 12;
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
@@ -53,7 +53,7 @@ public class Adapter_times extends RecyclerView.Adapter<Adapter_times.CustomView
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
                         if(arr_times[pos] == 0) {
-                            view.setBackgroundColor(Color.GREEN);
+                            view.setBackgroundColor(Color.LTGRAY);
                             arr_times[pos] = 1;
                         }
                         else

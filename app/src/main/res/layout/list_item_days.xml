@@ -3,15 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_height="50dp"
+    android:layout_margin="1dp"
     >
 
     <TextView
         android:id="@+id/tv_days"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:gravity="center"
+        android:fontFamily="@font/nanum_bold"
+        android:textSize="18sp"
+        android:textColor="@color/colorBlack"
         android:text="몇 일"/>
 
 </LinearLayout>
