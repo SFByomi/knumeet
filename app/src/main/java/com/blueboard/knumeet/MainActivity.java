@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -29,7 +31,14 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<MeetInfo> arrayList;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
@@ -53,6 +62,13 @@ public class MainActivity extends AppCompatActivity {
         ImageButton btn_go_enter = (ImageButton) findViewById(R.id.btn_go_enter);
         ImageButton btn_logout = (ImageButton) findViewById(R.id.btn_logout);
 
+        arrayList = new ArrayList<>();
+        recyclerView = findViewById(R.id.rv_main);//d
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);//d
+        adapter = new Adapter_main(this);//d
+        recyclerView.setAdapter(adapter);//어뎁터 연결//d
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -63,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),SelectActivity.class);
+                Adapter_main.addList();//방 늘어나게
                 startActivity(intent);
             }
         });
@@ -90,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
                         .show();
             }
         });
+
+
+
 
 
     }
