@@ -21,4 +21,8 @@
         android:font="@font/mon_semibold"
         android:fontStyle="normal"
         />
+    <font
+        android:font="@font/anja_normal"
+        android:fontStyle="normal"
+        />
 </font-family>

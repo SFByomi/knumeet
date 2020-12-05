@@ -8,18 +8,17 @@
     android:background="@color/colorPrimary"
     >
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="160dp"
-        android:fontFamily="@font/mon_semibold"
-        android:gravity="center"
-        android:text="KNU\nMEET"
-        android:textColor="@color/colorWhite"
-        android:textSize="50sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="400dp"
+
+
+        android:layout_marginBottom="120dp"
+        android:src="@drawable/every_meet_logo"
+        app:layout_constraintBottom_toTopOf="@+id/google_sign_in_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_sign_in_button"

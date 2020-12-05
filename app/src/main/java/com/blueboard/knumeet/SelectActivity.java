@@ -2,10 +2,12 @@ package com.blueboard.knumeet;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -115,6 +117,10 @@ public class SelectActivity extends AppCompatActivity {
                         tv_Start_time.setTextColor(getColor(R.color.colorBlack));
                         ImageView image = (ImageView)findViewById(R.id.image_start_time);
                         image.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
+                        ImageView image1 = (ImageView)findViewById(R.id.image_time);
+                        ImageView image2 = (ImageView)findViewById(R.id.image_people);
+                        image1.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
+                        image2.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
                     }
                 }, Start_time_hour,Start_time_min,false);
                 timePickerDialog1.show();
@@ -159,9 +165,19 @@ public class SelectActivity extends AppCompatActivity {
         btn_go_makeinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MakeInfoActivity.class);
-                startActivity(intent);
-                finish();
+                new AlertDialog.Builder(SelectActivity.this)
+                        .setMessage("정확한 정보를 입력하였습니까??\n\n(새로운 방 만들기)")
+                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(getApplicationContext(), MakeInfoActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("아니오", null)
+                        .show();
+
             }
 
         });
@@ -169,6 +185,17 @@ public class SelectActivity extends AppCompatActivity {
         btn_back_select_to_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new AlertDialog.Builder(SelectActivity.this)
+                        .setMessage("방만들기를 취소하시겠습니까??")
+                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(SelectActivity.this, MainActivity.class));
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("아니오", null)
+                        .show();
                 finish();
             }
         });

@@ -1,9 +1,11 @@
 package com.blueboard.knumeet;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -51,6 +53,24 @@ public class MakeInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        Button btn_complete = (Button)findViewById(R.id.btn_complete);
+
+        btn_complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(MakeInfoActivity.this)
+                        .setMessage("가능시간을 정확히 입력하였습니까??")
+                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(MakeInfoActivity.this, CompleteActivity.class));
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("아니오", null)
+                        .show();
             }
         });
 

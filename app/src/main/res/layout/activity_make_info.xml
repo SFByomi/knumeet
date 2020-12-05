@@ -10,21 +10,22 @@
     tools:context=".MakeInfoActivity">
 
     <LinearLayout
+        android:layout_marginTop="20dp"
+
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:weightSum="3"
-        android:elevation="10dp"
-        android:background="@drawable/rectangle_shape"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="top"
             android:orientation="vertical">
 
             <ImageButton
+                android:layout_marginTop="10dp"
                 android:id="@+id/btn_back_info_to"
                 android:layout_width="40dp"
                 android:layout_height="30dp"
@@ -33,15 +34,14 @@
         </LinearLayout>
 
         <TextView
-            android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="25sp"
-            android:text="  나의 시간"
-            android:textColor="@color/colorBlack"
-            android:fontFamily="@font/nanum_bold"
+            android:layout_weight="2"
+            android:fontFamily="@font/anja_normal"
             android:gravity="left|center_vertical"
-            />
+            android:text=" SET"
+            android:textColor="@color/colorPrimary"
+            android:textSize="50dp" />
 
     </LinearLayout>
 
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:elevation="10dp"
         android:background="@drawable/corner_shape"
@@ -151,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="오후 01:00 ~ 오후 05:00"
+                android:text="오후 12:00 ~ 오후 23:00"
                 android:textColor="@color/colorBlack"
                 android:gravity="center_vertical"
                 android:textSize="18sp"
@@ -188,7 +188,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="2020-10-10 ~ 2020-10-19"
+                android:text="2020-11-01 ~ 2020-11-05"
                 android:textColor="@color/colorBlack"
                 android:gravity="center_vertical"
                 android:textSize="18sp"
@@ -261,6 +261,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_complete"
         android:elevation="5dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
