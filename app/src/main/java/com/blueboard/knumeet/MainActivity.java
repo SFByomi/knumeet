@@ -69,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
         adapter = new Adapter_main(this);//d
         recyclerView.setAdapter(adapter);//어뎁터 연결//d
 
+        adapter.notifyDataSetChanged();//갱신
+
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -79,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),SelectActivity.class);
-                Adapter_main.addList();//방 늘어나게
                 startActivity(intent);
+                Adapter_main.addList();//방 늘어나게
+
             }
         });
         btn_go_enter.setOnClickListener(new View.OnClickListener() {

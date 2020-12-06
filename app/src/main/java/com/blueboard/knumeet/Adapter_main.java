@@ -42,13 +42,8 @@ public class Adapter_main extends RecyclerView.Adapter<Adapter_main.CustomViewHo
         return cnt;
     }
 
-    public static void addList()
-    {
-        cnt ++;
-    }
-    public void delList()
-    {
-        cnt --;
+    public static void addList() {
+        cnt++;
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
