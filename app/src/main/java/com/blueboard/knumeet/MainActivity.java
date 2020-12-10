@@ -33,12 +33,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<MeetInfo> arrayList;
+
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
@@ -67,9 +70,8 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);//d
         adapter = new Adapter_main(this);//d
-        recyclerView.setAdapter(adapter);//어뎁터 연결//d
 
-        adapter.notifyDataSetChanged();//갱신
+        recyclerView.setAdapter(adapter);//어뎁터 연결//d
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -82,9 +84,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),SelectActivity.class);
-                startActivity(intent);
                 Adapter_main.addList();//방 늘어나게
-
+                startActivity(intent);
             }
         });
         btn_go_enter.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +117,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+    }
+
+    //액티비티가 화면 복귀시마다 효과 넣기위해 Resume
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+        customType(MainActivity.this,"up-to-bottom");//animation,,화면표시될 때 마다 위에서 밑으로
     }
 
 }

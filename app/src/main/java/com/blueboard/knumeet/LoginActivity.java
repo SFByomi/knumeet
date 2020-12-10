@@ -49,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, user.getEmail() + "님" + "\n자동 로그인 되었습니다.", Toast.LENGTH_SHORT).show();
             finish();
         }
-
     }
 
     @Override

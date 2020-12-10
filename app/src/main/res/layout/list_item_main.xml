@@ -1,30 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="5dp"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_gravity="center"
+    android:gravity="center_vertical"
+    android:layout_height="60dp"
     android:layout_margin="1dp"
-    android:weightSum="10"
+    android:id="@+id/layout_meet"
+    android:weightSum="5"
+    android:background="@drawable/corner_shape"
+    android:elevation="5dp"
     >
+    <ImageView
+        android:id="@+id/iv_check"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_baseline_check_24_grey"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="5dp" />
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        />
 
     <TextView
-        android:layout_weight="8"
+        android:layout_weight="3.5"
         android:id="@+id/tv_main"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:gravity="left|center_vertical"
+        android:fontFamily="@font/nanum_bold"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        android:text="최종발표모임"/>
+
+
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/tv_number"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:gravity="center"
-        android:fontFamily="@font/nanum_bold"
-        android:textSize="18sp"
-        android:textColor="@color/colorBlack"
-        android:text="약속 내용"/>
+        android:fontFamily="@font/nanum_extrabold"
+        android:textSize="20sp"
+        android:textColor="#A3535353"
+        android:text="8/8"/>
 
     <Button
         android:id="@+id/btn_list"
-        android:layout_weight="2"
-        android:text="x"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:background="@drawable/ic_baseline_delete_outline_24"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         />
 
 </LinearLayout>

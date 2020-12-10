@@ -154,14 +154,29 @@
             android:text="소요시간:"
             android:layout_marginLeft="5dp"
             android:textColor="@color/colorUnClicked"
-            android:textSize="15sp" />
-
-        <Spinner
-            android:layout_marginLeft="5dp"
-            android:id="@+id/spinner"
+            android:textSize="18sp" />
+        <EditText
+            android:id="@+id/edit_time"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:entries="@array/__" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/nanum_regular"
+            android:hint=" 1"
+            android:imeOptions="actionDone"
+            android:nextFocusDown="@id/edit_people"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/tv_time_sigan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/nanum_bold"
+            android:text="시간"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/colorUnClicked"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -200,14 +215,31 @@
             android:fontFamily="@font/nanum_bold"
             android:text="인원:"
             android:textColor="@color/colorUnClicked"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
 
-        <Spinner
-            android:layout_marginLeft="5dp"
-            android:id="@+id/spinner2"
+        <EditText
+            android:id="@+id/edit_people"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:entries="@array/__" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/nanum_regular"
+            android:hint=" 1"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/tv_people_myeng"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/nanum_bold"
+            android:text="명"
+            android:textColor="@color/colorUnClicked"
+            android:textSize="18sp" />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -305,13 +337,14 @@
 
         <EditText
             android:id="@+id/edit_title"
-            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:fontFamily="@font/nanum_regular"
             android:hint="제목 :"
-            android:imeOptions="actionNext"
-            android:nextFocusDown="@id/btn_Start_time"
+            android:imeOptions="actionDone"
+            android:nextFocusDown="@id/edit_time"
             android:inputType="text"
             android:textColor="#000000"
             android:textSize="20sp" />
