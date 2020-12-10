@@ -8,13 +8,24 @@
     tools:context=".CompleteActivity">
 
 
+    <ImageView
+        android:id="@+id/image_share"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="144dp"
+        android:src="@drawable/ic_share_meet"
+        app:layout_constraintBottom_toTopOf="@+id/btn_go_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+
+
         android:layout_marginTop="16dp"
-
-
         android:src="@drawable/loding_imsi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
