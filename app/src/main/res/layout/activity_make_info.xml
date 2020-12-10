@@ -77,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="응용프로그래밍2"
+                android:text="최종발표모임"
                 android:textColor="@color/colorBlack"
                 android:gravity="center_vertical"
                 android:textSize="18sp"

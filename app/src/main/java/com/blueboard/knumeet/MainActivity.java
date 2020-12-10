@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         btn_go_enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),EnterActivity.class);
+                Intent intent = new Intent(getApplicationContext(),CodeActivity.class);
                 startActivity(intent);
             }
         });

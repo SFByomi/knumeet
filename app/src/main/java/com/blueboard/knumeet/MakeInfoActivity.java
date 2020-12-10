@@ -12,13 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.gson.internal.ObjectConstructor;
-
-import java.util.HashMap;
-
-import static maes.tech.intentanim.CustomIntent.customType;
 
 public class MakeInfoActivity extends AppCompatActivity {
     ImageButton btn_back_info_to;
@@ -26,13 +19,13 @@ public class MakeInfoActivity extends AppCompatActivity {
     private RecyclerView recyclerView_days,recyclerView_times;
     private RecyclerView.Adapter adapter_days,adapter_times;
     private RecyclerView.LayoutManager layoutManager_days,layoutManager_times;
-    DatabaseReference reference;
+    private int key = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_info);
-        customType(MakeInfoActivity.this,"bottom-to-up");//시작될때 animation
+
         recyclerView_days = findViewById(R.id.rv_days);//d
 
         recyclerView_times = findViewById(R.id.rv_times);//t
@@ -53,6 +46,8 @@ public class MakeInfoActivity extends AppCompatActivity {
         recyclerView_times.setAdapter(adapter_times);//t
 
 
+        Intent intent = getIntent();
+        key = intent.getExtras().getInt("Keynum");
 
 
         btn_back_info_to = (ImageButton)findViewById(R.id.btn_back_info_to);
@@ -60,16 +55,7 @@ public class MakeInfoActivity extends AppCompatActivity {
         btn_back_info_to.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(MakeInfoActivity.this)
-                        .setMessage("정보 입력을 취소하시겠습니까??")
-                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        })
-                        .setNegativeButton("아니오", null)
-                        .show();
+                finish();
             }
         });
         Button btn_complete = (Button)findViewById(R.id.btn_complete);
@@ -82,9 +68,14 @@ public class MakeInfoActivity extends AppCompatActivity {
                         .setPositiveButton("네", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
-                                startActivity(new Intent(MakeInfoActivity.this, CompleteActivity.class));
-                                finish();
+                                if(key == 2){
+                                    startActivity(new Intent(MakeInfoActivity.this, CompleteActivity2.class));
+                                    finish();
+                                }
+                                else{
+                                    startActivity(new Intent(MakeInfoActivity.this, CompleteActivity.class));
+                                    finish();
+                                }
                             }
                         })
                         .setNegativeButton("아니오", null)
