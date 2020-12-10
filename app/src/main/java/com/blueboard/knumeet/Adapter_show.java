@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class Adapter_show extends RecyclerView.Adapter<Adapter_show.CustomViewHolder> {
 
     private static int cnt = 8;
-    private static int[] arr_now = {5,5,4,3,3,1,1,1};//현재 사람수
+    private static int[] arr_now = {5,5,4,2,2,2,1,1};//현재 사람수
     private int[] arr_full = {5,5,5,5,5,5,5,5};// 최대인원
     private Context context;
     final String[] str = {"2020-12-11  9:00", "2020-12-11  10:00","2020-12-11  11:00","2020-12-12  9:00",
@@ -50,7 +50,7 @@ public class Adapter_show extends RecyclerView.Adapter<Adapter_show.CustomViewHo
            holder.image_result.setImageResource(R.drawable.ic_baseline_sentiment_very_satisfied_24); // 웃는 얼굴
            holder.tv_result_vote.setTextColor(Color.parseColor("#000000"));
        }
-       else if(arr_now[position]>2){
+       else if(arr_now[position]>1){
            holder.image_result.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_orange); // 살짝 웃는 얼굴
        }
        else {

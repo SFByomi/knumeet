@@ -23,8 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class Adapter_main extends RecyclerView.Adapter<Adapter_main.CustomViewHolder> {
 
     private static int cnt = 1;
-    private static int[] arr_now = {3,1};//현재 사람수
-    private int[] arr_full = {3,5};// 최대인원
+    private static int[] arr_now = {5,1};//현재 사람수
+    private int[] arr_full = {5,8};// 최대인원
     private Context context;
     final String[] str = {"테스트315", "최종발표모임"};
     private OnItemClickListener mListener = null;

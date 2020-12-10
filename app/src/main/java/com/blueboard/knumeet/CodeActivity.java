@@ -15,7 +15,7 @@ import static maes.tech.intentanim.CustomIntent.customType;
 
 public class CodeActivity extends AppCompatActivity {
 
-    private String enter_code = "-MNrOk8lJqRA1mHmON-Z";
+    private String enter_code = "-MNrOk8lJqRA1mHmON-Zflip";
     private Button btn_code;
     private EditText et_code;
     private int keynum = 2;

@@ -151,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text=" 9:00 ~ 21:00"
+                android:text=" 9:00 ~ 20:00"
                 android:textColor="@color/colorBlack"
                 android:gravity="center_vertical"
                 android:textSize="18sp"
