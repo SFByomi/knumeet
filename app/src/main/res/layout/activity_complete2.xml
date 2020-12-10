@@ -8,17 +8,29 @@
     tools:context=".CompleteActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="157dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="216dp"
+        android:src="@drawable/every_meet_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/anja_normal"
-        android:text="완료되었습니다."
+        android:text="       투표가 완료되었습니다.\n  호스트의 연락을 기다려주세요."
         android:textColor="#FFFFFF"
-        android:textSize="36sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_go_home2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.254" />
 
     <Button
         android:id="@+id/btn_go_home2"
@@ -28,7 +40,7 @@
         android:background="@drawable/corner_shape_point"
         android:elevation="5dp"
         android:fontFamily="@font/nanum_bold"
-        android:text="GO HOME"
+        android:text="종료하기"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -25,11 +25,14 @@
         android:id="@+id/btn_login_enter"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Enter"
+        android:background="@drawable/corner_shape_dark"
+        android:fontFamily="@font/nanum_bold"
+        android:text="로그인 없이 입장하기"
+        android:textColor="@color/colorWhite"
 
         app:layout_constraintBottom_toTopOf="@+id/google_sign_in_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/google_sign_in_button"
+        app:layout_constraintStart_toStartOf="@+id/google_sign_in_button"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:ignore="MissingConstraints" />
 

@@ -54,8 +54,15 @@
     <Button
         android:id="@+id/btn_list"
         android:background="@drawable/ic_baseline_delete_outline_24"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         />
+    <Button
+        android:id="@+id/btn_share_main"
+        android:background="@drawable/ic_baseline_share_24_orange"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        />
+
 
 </LinearLayout>

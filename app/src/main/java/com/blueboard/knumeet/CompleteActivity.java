@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 
 public class CompleteActivity extends AppCompatActivity {
 
@@ -16,6 +18,7 @@ public class CompleteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complete);
+        customType(CompleteActivity.this,"bottom-to-up");
         Button btn_go_home = (Button)findViewById(R.id.btn_go_home);
         btn_go_home.setOnClickListener(new View.OnClickListener() {
             @Override

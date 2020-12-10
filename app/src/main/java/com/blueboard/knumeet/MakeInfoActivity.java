@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 
 public class MakeInfoActivity extends AppCompatActivity {
     ImageButton btn_back_info_to;
@@ -25,6 +27,7 @@ public class MakeInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_info);
+        customType(MakeInfoActivity.this,"bottom-to-up");
 
         recyclerView_days = findViewById(R.id.rv_days);//d
 

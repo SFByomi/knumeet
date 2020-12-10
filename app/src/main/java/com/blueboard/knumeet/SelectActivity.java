@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,17 +32,21 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 public class SelectActivity extends AppCompatActivity {
     private int Start_time_hour=0,Start_time_min=0;
     private int End_time_hour=0,End_time_min=0;
     private TextView tv_Start_time, tv_End_time;
     private TextView tv_start_date,tv_end_date;
+    private TextView tv_time_sigan,tv_people_myeng,tv_howlong,tv_howmany;
     private TimePickerDialog timePickerDialog1;
     private ImageButton btn_back_select_to_home;
     private Intent intent;
-    private EditText et_title;
+    private EditText et_title,edit_time,edit_people;
     private int cnt = 0;
     private int keynum = 1;
+
     public void hideKeyboard(){
         InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         im.hideSoftInputFromWindow(et_title.getWindowToken(), 0);
@@ -50,6 +55,7 @@ public class SelectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
+        customType(SelectActivity.this,"bottom-to-up");
         Button btn_go_makeinfo = (Button) findViewById(R.id.btn_go_makeinfo);
         LinearLayout btn_start_calendar_1 = (LinearLayout)findViewById(R.id.btn_start_calendar_1);
         LinearLayout btn_start_calendar_2 = (LinearLayout)findViewById(R.id.  btn_start_calendar_2);
@@ -62,17 +68,20 @@ public class SelectActivity extends AppCompatActivity {
         tv_End_time= (TextView) findViewById(R.id.tv_End_time);
         tv_start_date=(TextView) findViewById(R.id.tv_start_date);
         tv_end_date=(TextView) findViewById(R.id.tv_end_date);
-
-
-
+        tv_time_sigan =(TextView)findViewById(R.id.tv_time_sigan);
+        tv_people_myeng = (TextView)findViewById(R.id.tv_people_myeng);
+        tv_howlong = (TextView) findViewById(R.id.tv_how_long);
+        tv_howmany = (TextView) findViewById(R.id.tv_how_many_people);
         btn_back_select_to_home = (ImageButton) findViewById(R.id.btn_back_select_to_home);
+
+
 
         et_title = (EditText)findViewById(R.id.edit_title);
         et_title.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
                     et_title.setSelected(false);
                     et_title.clearFocus();
                     hideKeyboard();
@@ -83,16 +92,44 @@ public class SelectActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
-
-
-//        if(intent!=null){
-//                Log.d("hibaby",intent.getStringExtra("Start_date"));
-//                tv_start_date.setText(intent.getStringExtra("Start_date"));
-//                tv_end_date.setText(intent.getStringExtra("End_date"));
-//        }
-
+        edit_time =(EditText)findViewById(R.id.edit_time);
+        edit_time.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @SuppressLint("NewApi")
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    edit_time.setSelected(false);
+                    edit_time.clearFocus();
+                    hideKeyboard();
+                    tv_howlong.setTextColor(getColor(R.color.colorBlack));
+                    tv_time_sigan.setTextColor(getColor(R.color.colorBlack));
+                    ImageView image_title = (ImageView)findViewById(R.id.image_time);
+                    image_title.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
+                    return true;
+                }
+                return false;
+            }
+        });
+        edit_people = (EditText)findViewById(R.id.edit_people);
+        edit_people.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @SuppressLint("NewApi")
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    edit_people.setSelected(false);
+                    edit_people.clearFocus();
+                    hideKeyboard();
+                    tv_howmany.setTextColor(getColor(R.color.colorBlack));
+                    tv_people_myeng.setTextColor(getColor(R.color.colorBlack));
+                    ImageView image_title = (ImageView)findViewById(R.id.image_people);
+                    image_title.setImageDrawable(getDrawable(R.drawable.ic_baseline_done_gray_blue));
+                    return true;
+                }
+                return false;
+            }
+        });
 
         btn_Start_time.setOnClickListener(new View.OnClickListener() {
             @Override

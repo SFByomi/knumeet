@@ -30,7 +30,7 @@ public class Adapter_times extends RecyclerView.Adapter<Adapter_times.CustomView
 
     @Override
     public void onBindViewHolder(@NonNull Adapter_times.CustomViewHolder holder, int position) {
-       holder.tv_times.setText((position + 12) +" : " + "00");
+       holder.tv_times.setText((position + 9) +" : " + "00");
     }
 
     @Override

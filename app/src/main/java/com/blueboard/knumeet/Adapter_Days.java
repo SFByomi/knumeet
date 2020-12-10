@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class Adapter_Days extends RecyclerView.Adapter<Adapter_Days.CustomViewHolder> {
 
     private boolean click_cnt = false;
-    private int[] arr_days = new int [5];
+    private int[] arr_days = new int [4];
     private Context context;
 
     public Adapter_Days(Context context) {
@@ -31,14 +31,14 @@ public class Adapter_Days extends RecyclerView.Adapter<Adapter_Days.CustomViewHo
     @Override
     public void onBindViewHolder(@NonNull Adapter_Days.CustomViewHolder holder, final int position) {
 
-        final String temp =  "2020-11- " + (position + 1) + " ";
+        final String temp =  "2020-12-" + (position + 11) + " ";
         holder.tv_days.setText(temp);
 
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 4;
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {

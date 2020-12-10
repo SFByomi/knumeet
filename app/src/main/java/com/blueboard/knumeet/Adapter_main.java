@@ -23,10 +23,10 @@ import androidx.recyclerview.widget.RecyclerView;
 public class Adapter_main extends RecyclerView.Adapter<Adapter_main.CustomViewHolder> {
 
     private static int cnt = 1;
-    private static int[] arr_now = {5,1};//현재 사람수
-    private int[] arr_full = {5,3};// 최대인원
+    private static int[] arr_now = {3,1};//현재 사람수
+    private int[] arr_full = {3,5};// 최대인원
     private Context context;
-    final String[] str = {"테스트3", "최종발표모임"};
+    final String[] str = {"테스트315", "최종발표모임"};
     private OnItemClickListener mListener = null;
 
     public Adapter_main(Context context) {
@@ -83,7 +83,7 @@ public class Adapter_main extends RecyclerView.Adapter<Adapter_main.CustomViewHo
         TextView tv_main;
         TextView tv_number;
         ImageView iv_check;
-        Button btn_list;
+        Button btn_list,btn_share_main;
         LinearLayout layout_meet;
 
         public CustomViewHolder(@NonNull final View itemView) {
@@ -93,6 +93,22 @@ public class Adapter_main extends RecyclerView.Adapter<Adapter_main.CustomViewHo
             this.iv_check = itemView.findViewById(R.id.iv_check);
             layout_meet = itemView.findViewById(R.id.layout_meet);
             btn_list = itemView.findViewById(R.id.btn_list);
+            btn_share_main = itemView.findViewById(R.id.btn_share_main);
+
+            btn_share_main.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
+                    Sharing_intent.setType("text/plain");
+
+                    String Test_Message = "-MNrOk8lJqRA1mHmON-Z";// 멘트
+
+                    Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
+
+                    Intent Sharing = Intent.createChooser(Sharing_intent, "공유하기");
+                    context.startActivity(Sharing);
+                }
+            });
 
             btn_list.setOnClickListener(new View.OnClickListener() {
 

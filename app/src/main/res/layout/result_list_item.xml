@@ -14,8 +14,8 @@
     >
     <ImageView
         android:id="@+id/image_result"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:src="@drawable/ic_baseline_sentiment_very_satisfied_24"
         android:layout_marginLeft="5dp"
         android:layout_marginEnd="10dp"
@@ -45,16 +45,15 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:gravity="center"
-        android:fontFamily="@font/nanum_extrabold"
+        android:fontFamily="@font/nanum_bold"
         android:textSize="20sp"
         android:textColor="#A3353535"
         android:text="8/8"/>
 
     <Button
         android:id="@+id/btn_result_share"
-        android:background="@drawable/ic_share_meet"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        />
+        android:background="@drawable/ic_share_meet" />
 
 </LinearLayout>

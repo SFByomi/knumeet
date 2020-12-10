@@ -39,6 +39,8 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 //import static maes.tech.intentanim.CustomIntent.customType;
 
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
@@ -48,8 +50,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private RecyclerView.LayoutManager layoutManager;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ArrayList<MeetInfo> arrayList;
-    TextView plus_fnc;
-
+    private TextView plus_fnc;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);//메인액티비티
+        customType(MainActivity.this,"up-to-bottom");
         ImageButton btn_go_select = (ImageButton) findViewById(R.id.btn_go_select);
         ImageButton btn_go_enter = (ImageButton) findViewById(R.id.btn_go_enter);
         ImageButton btn_logout = (ImageButton) findViewById(R.id.btn_logout);
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 Intent intent = new Intent(getApplicationContext(),SelectActivity.class);
                 Adapter_main.addList();//방 늘어나게
                 startActivity(intent);
+                finish();
             }
         });
         btn_go_enter.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CodeActivity.class);
                 startActivity(intent);
+
             }
         });
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -141,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     protected void onResume() {
 
         super.onResume();
-        //customType(MainActivity.this,"up-to-bottom");//animation,,화면표시될 때 마다 위에서 밑으로
+        customType(MainActivity.this,"up-to-bottom");//animation,,화면표시될 때 마다 위에서 밑으로
     }
 
     @Override

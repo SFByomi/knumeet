@@ -24,7 +24,8 @@ public class Adapter_show extends RecyclerView.Adapter<Adapter_show.CustomViewHo
     private static int[] arr_now = {5,5,4,3,3,1,1,1};//현재 사람수
     private int[] arr_full = {5,5,5,5,5,5,5,5};// 최대인원
     private Context context;
-    final String[] str = {"시간1등", "시간2등","시간3등","시간4등", "시간5등","시간6등","시간7등", "시간8등"};
+    final String[] str = {"2020-12-11  9:00", "2020-12-11  10:00","2020-12-11  11:00","2020-12-12  9:00",
+            "2020-12-12  10:00","2020-12-13  9:00","2020-12-13  10:00", "2020-12-13  11:00"};
     private OnItemClickListener mListener = null;
 
     public Adapter_show(Context context) {
@@ -46,13 +47,14 @@ public class Adapter_show extends RecyclerView.Adapter<Adapter_show.CustomViewHo
        holder.tv_result_time.setText(str[position] + "   ");
        holder.tv_result_vote.setText(arr_now[position]+"/"+arr_full[position]);
        if(arr_now[position] == arr_full[position]){
-           holder.image_result.setImageResource(R.drawable.ic_baseline_check_24_grey); // 웃는 얼굴
+           holder.image_result.setImageResource(R.drawable.ic_baseline_sentiment_very_satisfied_24); // 웃는 얼굴
+           holder.tv_result_vote.setTextColor(Color.parseColor("#000000"));
        }
-       else if(arr_now[position]/arr_full[position] > 1/2){
-           holder.image_result.setImageResource(R.drawable.ic_baseline_check_24_grey); // 살짝 웃는 얼굴
+       else if(arr_now[position]>2){
+           holder.image_result.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_orange); // 살짝 웃는 얼굴
        }
        else {
-           holder.image_result.setImageResource(R.drawable.ic_baseline_check_24_grey); // 우는 얼굴
+           holder.image_result.setImageResource(R.drawable.ic_baseline_sentiment_very_disatisfied_red); // 우는 얼굴
        }
     }
 
@@ -92,7 +94,7 @@ public class Adapter_show extends RecyclerView.Adapter<Adapter_show.CustomViewHo
                     Sharing_intent.setType("text/plain");
 
                     int pos = getAdapterPosition();
-                    String Test_Message = "약속시간은  " + str[pos] + "  입니다!";// 멘트
+                    String Test_Message = "안녕하세요! 우리 \"" + str[pos] + "\"에 만나요!\n\nfrom.약속시간을 가장 쉽게 정하는 방법\n\"everyMEET\"";// 멘트
 
                     Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
 

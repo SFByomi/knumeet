@@ -30,6 +30,8 @@ import com.google.firebase.firestore.SetOptions;
 import java.util.HashMap;
 import java.util.Map;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 6969;
@@ -84,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this,CodeActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -139,6 +142,12 @@ public class LoginActivity extends AppCompatActivity {
     private void signIn(){
         Intent signIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signIntent,RC_SIGN_IN);
+    }
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+        customType(LoginActivity.this,"up-to-bottom");//animation,,화면표시될 때 마다 위에서 밑으로
     }
 
 }
