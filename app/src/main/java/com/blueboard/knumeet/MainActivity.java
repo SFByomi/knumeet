@@ -1,6 +1,7 @@
 package com.blueboard.knumeet;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,13 +9,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -31,16 +35,20 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import static maes.tech.intentanim.CustomIntent.customType;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private ArrayList<MeetInfo> arrayList;
+    TextView plus_fnc;
 
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -57,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
         ImageButton btn_go_select = (ImageButton) findViewById(R.id.btn_go_select);
         ImageButton btn_go_enter = (ImageButton) findViewById(R.id.btn_go_enter);
         ImageButton btn_logout = (ImageButton) findViewById(R.id.btn_logout);
+        swipeRefreshLayout = findViewById(R.id.swipe);
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeColors(getColor(R.color.colorPrimary));
+
+        plus_fnc = (TextView) findViewById(R.id.textView6);
+
 
         arrayList = new ArrayList<>();
         recyclerView = findViewById(R.id.rv_main);//d
@@ -112,13 +127,13 @@ public class MainActivity extends AppCompatActivity {
                         .show();
             }
         });
-
-
-
-
-
-
-
+        plus_fnc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Adapter_main.addUser();
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     //액티비티가 화면 복귀시마다 효과 넣기위해 Resume
@@ -129,4 +144,14 @@ public class MainActivity extends AppCompatActivity {
         customType(MainActivity.this,"up-to-bottom");//animation,,화면표시될 때 마다 위에서 밑으로
     }
 
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setRefreshing(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        },1000);
+    }
 }
