@@ -53,7 +53,7 @@ public class Adapter_main extends RecyclerView.Adapter<Adapter_main.CustomViewHo
            holder.tv_number.setTextColor(Color.parseColor("#3440D4"));
        }else{
            holder.tv_number.setText(arr_now[position]+"/"+arr_full[position]);
-       }
+       };
     }
 
     @Override

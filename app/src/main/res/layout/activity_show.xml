@@ -208,9 +208,17 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-
             />
     </LinearLayout>
+    <Button
+        android:id="@+id/btn_select_save"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/corner_shape_blue"
+        android:fontFamily="@font/nanum_bold"
+        android:text="전체 공유"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp" />
 
 </LinearLayout>
