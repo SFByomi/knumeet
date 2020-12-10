@@ -13,7 +13,7 @@
     android:elevation="5dp"
     >
     <ImageView
-        android:id="@+id/iv_check"
+        android:id="@+id/image_result"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:src="@drawable/ic_baseline_sentiment_very_satisfied_24"
@@ -28,6 +28,7 @@
         />
 
     <TextView
+        android:id="@+id/tv_result_time"
         android:layout_weight="3.5"
         android:layout_width="0dp"
         android:layout_height="50dp"
@@ -40,7 +41,7 @@
 
     <TextView
         android:layout_weight="1"
-        android:id="@+id/tv_number"
+        android:id="@+id/tv_result_vote"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:gravity="center"
@@ -50,8 +51,8 @@
         android:text="8/8"/>
 
     <Button
-        android:id="@+id/btn_list"
-        android:background="@drawable/ic_baseline_delete_outline_24"
+        android:id="@+id/btn_result_share"
+        android:background="@drawable/ic_share_meet"
         android:layout_width="35dp"
         android:layout_height="35dp"
         />

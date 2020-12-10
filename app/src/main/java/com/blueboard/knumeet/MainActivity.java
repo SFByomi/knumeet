@@ -39,7 +39,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-import static maes.tech.intentanim.CustomIntent.customType;
+//import static maes.tech.intentanim.CustomIntent.customType;
 
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     protected void onResume() {
 
         super.onResume();
-        customType(MainActivity.this,"up-to-bottom");//animation,,화면표시될 때 마다 위에서 밑으로
+        //customType(MainActivity.this,"up-to-bottom");//animation,,화면표시될 때 마다 위에서 밑으로
     }
 
     @Override
